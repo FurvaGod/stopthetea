@@ -1,18 +1,18 @@
--- CreateTable
+﻿-- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT,
     "email" TEXT,
     "image" TEXT,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    "createdAt" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CreateTable
 CREATE TABLE "Case" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "userId" TEXT NOT NULL,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL,
+    "createdAt" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP NOT NULL,
     "status" TEXT NOT NULL DEFAULT 'RECEIVED',
     "targetPlatform" TEXT NOT NULL,
     "description" TEXT NOT NULL,

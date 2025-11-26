@@ -8,15 +8,12 @@ import { sendCaseReceivedEmail } from "@/app/lib/email";
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePriceId = process.env.STRIPE_PRICE_ID;
 
-if (!stripeSecretKey) {
-  throw new Error("Missing STRIPE_SECRET_KEY environment variable");
+function getStripeClient() {
+  if (!stripeSecretKey) {
+    throw new Error("Missing STRIPE_SECRET_KEY environment variable");
+  }
+  return new Stripe(stripeSecretKey);
 }
-
-if (!stripePriceId) {
-  throw new Error("Missing STRIPE_PRICE_ID environment variable");
-}
-
-const stripe = new Stripe(stripeSecretKey);
 
 function errorRedirect(request: Request, message: string) {
   const url = new URL(`/intake?error=${encodeURIComponent(message)}`, request.url);
@@ -31,6 +28,11 @@ export async function GET(request: Request) {
       return NextResponse.redirect(signinUrl, { status: 302 });
     }
 
+    if (!stripePriceId) {
+      return errorRedirect(request, "Checkout verification unavailable. Contact support with your receipt.");
+    }
+
+    const stripe = getStripeClient();
     const url = new URL(request.url);
     const stripeSessionId = url.searchParams.get("session_id");
     if (!stripeSessionId) {

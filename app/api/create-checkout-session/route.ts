@@ -6,15 +6,12 @@ import { readIntakeSession } from "@/lib/intakeSession";
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const priceId = process.env.STRIPE_PRICE_ID;
 
-if (!stripeSecretKey) {
-  throw new Error("Missing STRIPE_SECRET_KEY environment variable");
+function getStripeClient() {
+  if (!stripeSecretKey) {
+    throw new Error("Missing STRIPE_SECRET_KEY environment variable");
+  }
+  return new Stripe(stripeSecretKey);
 }
-
-if (!priceId) {
-  throw new Error("Missing STRIPE_PRICE_ID environment variable");
-}
-
-const stripe = new Stripe(stripeSecretKey);
 
 function buildOrigin(request: Request): string {
   const headerOrigin = request.headers.get("origin");
@@ -41,12 +38,17 @@ export async function GET(request: Request) {
       return NextResponse.redirect(signinUrl, { status: 302 });
     }
 
+    if (!priceId) {
+      return redirectWithError(request, "Checkout is temporarily unavailable. Contact support.");
+    }
+
     const storedPayload = await readIntakeSession(session.user.id);
     if (!storedPayload) {
       return redirectWithError(request, "Your form data expired. Please submit again.");
     }
 
     const origin = buildOrigin(request);
+    const stripe = getStripeClient();
 
     const stripeSession = await stripe.checkout.sessions.create({
       mode: "payment",
