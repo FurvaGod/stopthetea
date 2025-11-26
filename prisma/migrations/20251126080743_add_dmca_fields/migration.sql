@@ -1,0 +1,21 @@
+-- AlterTable
+ALTER TABLE "Case" ADD COLUMN "addressLine1" TEXT;
+ALTER TABLE "Case" ADD COLUMN "addressLine2" TEXT;
+ALTER TABLE "Case" ADD COLUMN "city" TEXT;
+ALTER TABLE "Case" ADD COLUMN "commentsOrCaptions" TEXT;
+ALTER TABLE "Case" ADD COLUMN "copyrightedWorkDescription" TEXT;
+ALTER TABLE "Case" ADD COLUMN "country" TEXT;
+ALTER TABLE "Case" ADD COLUMN "dateCreated" DATETIME;
+ALTER TABLE "Case" ADD COLUMN "electronicSignature" TEXT;
+ALTER TABLE "Case" ADD COLUMN "email" TEXT;
+ALTER TABLE "Case" ADD COLUMN "fullLegalName" TEXT;
+ALTER TABLE "Case" ADD COLUMN "originalPublicationLocation" TEXT;
+ALTER TABLE "Case" ADD COLUMN "ownershipType" TEXT;
+ALTER TABLE "Case" ADD COLUMN "phone" TEXT;
+ALTER TABLE "Case" ADD COLUMN "screenshotUrls" TEXT;
+ALTER TABLE "Case" ADD COLUMN "signatureDate" DATETIME;
+ALTER TABLE "Case" ADD COLUMN "state" TEXT;
+ALTER TABLE "Case" ADD COLUMN "teaProfileUrl" TEXT;
+ALTER TABLE "Case" ADD COLUMN "teaUsername" TEXT;
+ALTER TABLE "Case" ADD COLUMN "whereContentAppears" TEXT;
+ALTER TABLE "Case" ADD COLUMN "zip" TEXT;
