@@ -80,6 +80,8 @@ async function handlePaymentFailed(paymentIntent: Stripe.PaymentIntent) {
   });
 }
 
+export const runtime = "nodejs";
+
 export async function POST(req: NextRequest) {
   if (!webhookSecret) {
     return NextResponse.json({ error: "Webhook secret missing" }, { status: 500 });
