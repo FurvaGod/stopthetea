@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { auth } from "@/lib/auth";
 import {
   getCasesForUser,
@@ -5,6 +6,7 @@ import {
   mapStatusLabel,
   type CaseStatusKey,
 } from "@/lib/cases";
+import { buildScreenshotDownloadUrl, extractUploadthingKey, parseScreenshotKeys } from "@/lib/screenshots";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { CreateCaseForm } from "./CreateCaseForm";
@@ -17,48 +19,6 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
 });
-
-function extractUploadthingKey(value?: string | null) {
-  if (!value) {
-    return null;
-  }
-  const trimmed = value.trim();
-  if (!trimmed) {
-    return null;
-  }
-  if (trimmed.startsWith("http")) {
-    try {
-      const parsed = new URL(trimmed);
-      const segments = parsed.pathname.split("/").filter(Boolean);
-      return segments.pop() ?? null;
-    } catch (error) {
-      console.warn("Unable to parse screenshot URL", error);
-      return null;
-    }
-  }
-  return trimmed;
-}
-
-function parseScreenshotKeys(raw?: string | null) {
-  if (!raw) {
-    return [];
-  }
-  try {
-    const parsed = JSON.parse(raw);
-    const values = Array.isArray(parsed) ? parsed : typeof parsed === "string" ? [parsed] : [];
-    return values
-      .map((value) => (typeof value === "string" ? extractUploadthingKey(value) : null))
-      .filter((value): value is string => typeof value === "string" && value.length > 0);
-  } catch (error) {
-    console.warn("Unable to parse stored screenshot identifiers", error);
-    return [];
-  }
-}
-
-function buildScreenshotDownloadUrl(caseId: string, fileKey: string) {
-  const params = new URLSearchParams({ caseId, fileKey });
-  return `/api/cases/screenshots?${params.toString()}`;
-}
 
 const TIMELINE_FLOW: CaseStatusKey[] = [
   "RECEIVED",
@@ -351,18 +311,40 @@ export default async function DashboardPage() {
                       {evidenceLinks.length > 0 && (
                         <div>
                           <dt className="text-[#6B7280]">Screenshots</dt>
-                          <dd className="space-y-1">
-                            {evidenceLinks.map((item) => (
-                              <Link
-                                key={item.key}
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block truncate text-[#38B7B0]"
-                              >
-                                {item.label}
-                              </Link>
-                            ))}
+                          <dd className="space-y-2">
+                            <div className="flex flex-wrap gap-3">
+                              {evidenceLinks.map((item, index) => (
+                                <Link
+                                  key={`${item.key}-thumb`}
+                                  href={item.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block rounded-2xl border border-[#E5E7EB] bg-white/80 p-1 shadow-sm transition hover:border-[#38B7B0]"
+                                >
+                                  <Image
+                                    src={item.href}
+                                    alt={`Takedown evidence screenshot ${index + 1}`}
+                                    width={160}
+                                    height={100}
+                                    unoptimized
+                                    className="h-24 w-40 rounded-xl object-cover"
+                                  />
+                                </Link>
+                              ))}
+                            </div>
+                            <div className="space-y-1 text-xs">
+                              {evidenceLinks.map((item) => (
+                                <Link
+                                  key={item.key}
+                                  href={item.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block truncate text-[#38B7B0]"
+                                >
+                                  {item.label}
+                                </Link>
+                              ))}
+                            </div>
                           </dd>
                         </div>
                       )}

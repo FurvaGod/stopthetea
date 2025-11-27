@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { UTApi } from "uploadthing/server";
 import { auth } from "@/lib/auth";
+import { isAdminEmail } from "@/lib/admin";
 import { prisma } from "@/lib/prisma";
 
 const utapi = new UTApi();
@@ -59,7 +60,14 @@ export async function GET(request: Request) {
     select: { userId: true, screenshotUrls: true },
   });
 
-  if (!record || record.userId !== session.user.id) {
+  if (!record) {
+    return NextResponse.json({ error: "Screenshot not found" }, { status: 404 });
+  }
+
+  const isOwner = record.userId === session.user.id;
+  const isAdmin = isAdminEmail(session.user.email ?? undefined);
+
+  if (!isOwner && !isAdmin) {
     return NextResponse.json({ error: "Screenshot not found" }, { status: 404 });
   }
 

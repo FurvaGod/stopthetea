@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { auth } from "@/lib/auth";
-import { readIntakeSession } from "@/lib/intakeSession";
+import { createCaseForUser } from "@/lib/cases";
+import { clearIntakeSession, readIntakeSession } from "@/lib/intakeSession";
+import { env } from "@/lib/env";
 
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-const priceId = process.env.STRIPE_PRICE_ID;
+const stripeSecretKey = env.stripeSecretKey;
+const priceId = env.stripePriceId;
 
 function getStripeClient() {
   if (!stripeSecretKey) {
@@ -47,8 +49,15 @@ export async function GET(request: Request) {
       return redirectWithError(request, "Your form data expired. Please submit again.");
     }
 
+    const caseRecord = await createCaseForUser(session.user.id, storedPayload);
+
     const origin = buildOrigin(request);
     const stripe = getStripeClient();
+    const metadata = {
+      caseId: caseRecord.id,
+      caseNumber: caseRecord.caseNumber,
+      userId: session.user.id,
+    } satisfies Record<string, string>;
 
     const stripeSession = await stripe.checkout.sessions.create({
       mode: "payment",
@@ -58,8 +67,9 @@ export async function GET(request: Request) {
           quantity: 1,
         },
       ],
-      metadata: {
-        userId: session.user.id,
+      metadata,
+      payment_intent_data: {
+        metadata,
       },
       client_reference_id: session.user.id,
       customer_email: session.user.email ?? undefined,
@@ -71,7 +81,9 @@ export async function GET(request: Request) {
       return redirectWithError(request, "Unable to start checkout. Please try again.");
     }
 
-    return NextResponse.redirect(stripeSession.url, { status: 303 });
+    const response = NextResponse.redirect(stripeSession.url, { status: 303 });
+    clearIntakeSession(response.cookies);
+    return response;
   } catch (error) {
     console.error("Stripe checkout session error:", error);
     return redirectWithError(request, "Unable to create checkout session.");

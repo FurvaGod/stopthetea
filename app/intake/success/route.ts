@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { auth } from "@/lib/auth";
-import { readIntakeSession, clearIntakeSession } from "@/lib/intakeSession";
-import { createCaseForUser } from "@/lib/cases";
-import { sendCaseReceivedEmail } from "@/app/lib/email";
+import { clearIntakeSession } from "@/lib/intakeSession";
+import { env } from "@/lib/env";
+import { prisma } from "@/lib/prisma";
 
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-const stripePriceId = process.env.STRIPE_PRICE_ID;
+const stripeSecretKey = env.stripeSecretKey;
+const stripePriceId = env.stripePriceId;
 
 function getStripeClient() {
   if (!stripeSecretKey) {
@@ -39,6 +39,7 @@ export async function GET(request: Request) {
       return errorRedirect(request, "Missing Stripe session reference.");
     }
 
+    // This route only confirms that the signed-in user reached the success URL. Stripe's webhook finalizes payment status and case work.
     const checkoutSession = await stripe.checkout.sessions.retrieve(stripeSessionId, {
       expand: ["line_items.data.price"],
     });
@@ -75,20 +76,19 @@ export async function GET(request: Request) {
       return errorRedirect(request, "This payment does not belong to your account.");
     }
 
-    const storedPayload = await readIntakeSession(session.user.id);
-    if (!storedPayload) {
-      return errorRedirect(request, "Intake details expired. Please re-submit the form.");
+    const caseId = checkoutSession.metadata?.caseId as string | undefined;
+    if (!caseId) {
+      console.error("Stripe checkout session missing caseId metadata", checkoutSession.id);
+      return errorRedirect(request, "We could not match your payment to a case. Contact support with your receipt.");
     }
 
-    const createdCase = await createCaseForUser(session.user.id, storedPayload);
+    const existingCase = await prisma.case.findUnique({
+      where: { id: caseId },
+      select: { userId: true },
+    });
 
-    const recipient = createdCase.contactEmail ?? session.user.email;
-    if (recipient) {
-      await sendCaseReceivedEmail({
-        to: recipient,
-        fullName: createdCase.fullLegalName ?? session.user.name ?? "StopTheTea client",
-        caseNumber: createdCase.caseNumber,
-      });
+    if (!existingCase || existingCase.userId !== session.user.id) {
+      return errorRedirect(request, "This case does not belong to your account.");
     }
 
     const dashboardUrl = new URL("/dashboard", request.url);

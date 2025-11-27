@@ -1,4 +1,4 @@
-﻿-- AlterTable
+-- AlterTable
 ALTER TABLE "Case" ADD COLUMN "addressLine1" TEXT;
 ALTER TABLE "Case" ADD COLUMN "addressLine2" TEXT;
 ALTER TABLE "Case" ADD COLUMN "city" TEXT;

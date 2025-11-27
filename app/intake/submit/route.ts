@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { OWNERSHIP_TYPES, type CreateCaseInput, type OwnershipType } from "@/lib/cases";
+import { OWNERSHIP_TYPES, type CreateCaseInput, type OwnershipType, type ScreenshotPayload } from "@/lib/cases";
 import { storeIntakeSession } from "@/lib/intakeSession";
+import { extractUploadthingKey } from "@/lib/screenshots";
 
 function optionalString(value: FormDataEntryValue | null) {
   if (typeof value !== "string") {
@@ -35,11 +36,21 @@ function parseScreenshotValue(value: FormDataEntryValue | null): string[] {
     if (!Array.isArray(parsed)) {
       return [];
     }
-    return parsed.filter((item): item is string => typeof item === "string" && item.length > 0);
+    return parsed
+      .map((item) => (typeof item === "string" ? item.trim() : ""))
+      .filter((item) => item.length > 0);
   } catch (error) {
-    console.error("Unable to parse screenshot URLs", error);
+    console.error("Unable to parse screenshot payload", error);
     return [];
   }
+}
+
+function collectScreenshotInputs(formData: FormData): string[] {
+  const urls = parseScreenshotValue(formData.get("screenshotUrls"));
+  if (urls.length > 0) {
+    return urls;
+  }
+  return parseScreenshotValue(formData.get("screenshotFileKeys"));
 }
 
 function normalizeOwnership(value: FormDataEntryValue | null): OwnershipType {
@@ -71,16 +82,30 @@ function buildCasePayload(formData: FormData): CreateCaseInput {
   const phone = optionalString(formData.get("phone"));
   const electronicSignature = optionalString(formData.get("electronicSignature"));
   const signatureDate = parseDateField(formData.get("signatureDate"));
-  const screenshotKeys = parseScreenshotValue(formData.get("screenshotFileKeys"));
+  const screenshotInputs = collectScreenshotInputs(formData);
   const commentsOrCaptions = optionalString(formData.get("commentsOrCaptions"));
   const addressLine2 = optionalString(formData.get("addressLine2"));
+
+  const screenshots = screenshotInputs.reduce<ScreenshotPayload[]>((acc, raw) => {
+    const normalized = raw.trim();
+    if (!normalized) {
+      return acc;
+    }
+    const storageKey = extractUploadthingKey(normalized) ?? undefined;
+    const url = normalized.startsWith("http://") || normalized.startsWith("https://") ? normalized : undefined;
+    if (!storageKey && !url) {
+      return acc;
+    }
+    acc.push({ storageKey, url });
+    return acc;
+  }, []);
 
   return {
     targetPlatform: "Tea",
     description: caseDescription,
     profileLink: teaProfileUrl ?? undefined,
     contactEmail: email ?? undefined,
-    screenshots: screenshotKeys.map((key) => ({ storageKey: key })),
+    screenshots,
     dmcaDetails: {
       ownershipType,
       copyrightedWorkDescription: copyrightDescriptionRaw ?? null,

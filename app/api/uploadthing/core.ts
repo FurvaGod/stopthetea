@@ -6,10 +6,10 @@ const f = createUploadthing();
 const utapi = new UTApi();
 
 export const ourFileRouter = {
-  caseScreenshots: f({ image: { maxFileSize: "4MB" } })
+  caseEvidence: f({ image: { maxFileSize: "4MB", maxFileCount: 3 } })
     .middleware(async () => {
       const session = await auth();
-      if (!session?.user) {
+      if (!session?.user?.id) {
         throw new Error("Unauthorized");
       }
       return { userId: session.user.id };
@@ -19,7 +19,13 @@ export const ourFileRouter = {
       if (!aclResult?.success) {
         throw new Error("Unable to lock screenshot access");
       }
-      return { fileKey: file.key, fileName: file.name, userId: metadata.userId };
+
+      return {
+        fileKey: file.key,
+        fileUrl: file.url,
+        fileName: file.name,
+        userId: metadata.userId,
+      };
     }),
 } satisfies FileRouter;
 

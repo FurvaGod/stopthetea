@@ -1,5 +1,4 @@
 import { prisma } from "@/lib/prisma";
-import type { Prisma } from "@prisma/client";
 import { randomUUID } from "crypto";
 
 export type CaseStatusKey =
@@ -51,9 +50,46 @@ const CASE_DETAIL_SELECT = {
   phone: true,
   electronicSignature: true,
   signatureDate: true,
+  emailSent: true,
+  paymentStatus: true,
 } as const;
 
-export type CaseDetail = Prisma.CaseGetPayload<{ select: typeof CASE_DETAIL_SELECT }>;
+export type CaseDetail = {
+  id: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  status: CaseStatusKey;
+  targetPlatform: string;
+  description: string;
+  caseNumber: string;
+  profileLink: string | null;
+  contactEmail: string | null;
+  screenshotUrl: string | null;
+  screenshotData: string | null;
+  screenshotUrls: string | null;
+  copyrightedWorkDescription: string | null;
+  dateCreated: Date | null;
+  originalPublicationLocation: string | null;
+  ownershipType: string | null;
+  teaUsername: string | null;
+  teaProfileUrl: string | null;
+  whereContentAppears: string | null;
+  commentsOrCaptions: string | null;
+  fullLegalName: string | null;
+  addressLine1: string | null;
+  addressLine2: string | null;
+  city: string | null;
+  state: string | null;
+  zip: string | null;
+  country: string | null;
+  email: string | null;
+  phone: string | null;
+  electronicSignature: string | null;
+  signatureDate: Date | null;
+  emailSent: boolean;
+  paymentStatus: string;
+};
 
 export type OwnershipType =
   | "Owner/Photographer"
@@ -147,10 +183,18 @@ export async function createCaseForUser(userId: string, data: CreateCaseInput): 
     return trimmed;
   };
 
-  const screenshotKeys =
+  const screenshotSources =
     data.screenshots
-      ?.map((item) => normalizeStorageKey(item.storageKey ?? item.url ?? null))
-      .filter((key): key is string => typeof key === "string" && key.length > 0) ?? [];
+      ?.map((item) => {
+        const source = item.url ?? item.storageKey ?? null;
+        if (!source) {
+          return null;
+        }
+        const trimmed = source.trim();
+        return trimmed.length > 0 ? trimmed : null;
+      })
+      .filter((value): value is string => Boolean(value)) ?? [];
+
   const screenshotData = data.screenshots && data.screenshots.length > 0 ? JSON.stringify(data.screenshots) : null;
   const screenshotUrl = null;
   const dmca = data.dmcaDetails;
@@ -165,7 +209,7 @@ export async function createCaseForUser(userId: string, data: CreateCaseInput): 
     contactEmail: data.contactEmail ?? dmca?.email ?? null,
     screenshotUrl,
     screenshotData,
-    screenshotUrls: screenshotKeys.length > 0 ? JSON.stringify(screenshotKeys) : null,
+    screenshotUrls: screenshotSources.length > 0 ? JSON.stringify(screenshotSources) : null,
     copyrightedWorkDescription: dmca?.copyrightedWorkDescription ?? null,
     dateCreated: dmca?.dateCreated ?? null,
     originalPublicationLocation: dmca?.originalPublicationLocation ?? null,
@@ -188,11 +232,11 @@ export async function createCaseForUser(userId: string, data: CreateCaseInput): 
   };
 
   const created = await prisma.case.create({
-    data: record as unknown as Prisma.CaseUncheckedCreateInput,
+    data: record,
     select: CASE_DETAIL_SELECT,
   });
 
-  return created;
+  return created as CaseDetail;
 }
 
 export function mapStatusLabel(status: string): string {
@@ -206,11 +250,12 @@ export function mapStatusAccent(status: string): string {
 }
 
 export async function getCasesForUser(userId: string): Promise<CaseDetail[]> {
-  return prisma.case.findMany({
+  const cases = await prisma.case.findMany({
     where: { userId },
     orderBy: { createdAt: "desc" },
     select: CASE_DETAIL_SELECT,
   });
+  return cases as CaseDetail[];
 }
 
 const ADMIN_CASE_SELECT = {
@@ -225,15 +270,32 @@ const ADMIN_CASE_SELECT = {
   createdAt: true,
   updatedAt: true,
   user: { select: { email: true } },
+  emailSent: true,
+  paymentStatus: true,
 } as const;
 
-export type AdminCaseSummary = Prisma.CaseGetPayload<{ select: typeof ADMIN_CASE_SELECT }>;
+export type AdminCaseSummary = {
+  id: string;
+  caseNumber: string;
+  status: CaseStatusKey;
+  targetPlatform: string;
+  profileLink: string | null;
+  teaProfileUrl: string | null;
+  contactEmail: string | null;
+  screenshotUrls: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  emailSent: boolean;
+  paymentStatus: string;
+  user: { email: string | null };
+};
 
 export async function getAllCasesForAdmin(): Promise<AdminCaseSummary[]> {
-  return prisma.case.findMany({
+  const rows = await prisma.case.findMany({
     orderBy: { createdAt: "desc" },
     select: ADMIN_CASE_SELECT,
   });
+  return rows as AdminCaseSummary[];
 }
 
 export async function updateCaseStatusById(caseId: string, status: CaseStatusKey) {

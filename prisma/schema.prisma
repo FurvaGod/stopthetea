@@ -1,5 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
+// To verify Supabase is receiving data, open the Supabase SQL editor and run:
+//   select * from "Case" order by "createdAt" desc limit 10;
 
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
@@ -10,7 +12,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -59,6 +60,11 @@ model Case {
   contactEmail   String?
   screenshotUrl  String?
   screenshotData String?
+  emailSent      Boolean  @default(false)
+  paymentStatus                String   @default("PENDING")
+
+  @@index([userId])
+  @@index([createdAt])
 }
 
 model Account {

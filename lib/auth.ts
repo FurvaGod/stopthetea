@@ -2,10 +2,10 @@ import NextAuth, { getServerSession, type NextAuthOptions } from "next-auth";
 import Google from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
-import { createCaseForUser } from "@/lib/cases";
+import { env } from "@/lib/env";
 
-const googleClientId = process.env.GOOGLE_CLIENT_ID;
-const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
+const googleClientId = env.googleClientId;
+const googleClientSecret = env.googleClientSecret;
 
 if (!googleClientId || !googleClientSecret) {
   console.warn("Google OAuth credentials are not configured. Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.");
@@ -13,6 +13,7 @@ if (!googleClientId || !googleClientSecret) {
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+  secret: env.nextAuthSecret,
   providers: [
     Google({
       clientId: googleClientId ?? "",
@@ -28,21 +29,6 @@ export const authOptions: NextAuthOptions = {
         session.user.id = token.sub;
       }
       return session;
-    },
-  },
-  events: {
-    async createUser({ user }) {
-      if (!user.id) {
-        return;
-      }
-      try {
-        await createCaseForUser(user.id, {
-          description: "Initial placeholder case created at sign-up.",
-          targetPlatform: "Tea",
-        });
-      } catch (error) {
-        console.error("Failed to create default case", error);
-      }
     },
   },
 };
