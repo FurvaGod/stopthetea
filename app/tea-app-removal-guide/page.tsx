@@ -91,6 +91,48 @@ export default function TeaAppRemovalGuidePage() {
         </section>
 
         <section className="space-y-3">
+          <h2 className="text-xl font-semibold">Step-by-Step: How to Get Your Post Off the Tea App</h2>
+          <p className="text-slate-300">
+            If you’ve been searching for how to get your post off the Tea app, this is the clearest and most reliable method. Many people try in-app reporting first, but that often isn’t enough on its own. This step-by-step process gives you the best chance of getting your post off the Tea app when simple reporting doesn’t work.
+          </p>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+            <h3 className="text-base font-semibold">1. Screenshot and document the post</h3>
+            <p className="text-slate-300 text-sm">
+              Capture screenshots of the Tea app post, including the username, any captions, and where in the app it appears. This will be required for the takedown request.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+            <h3 className="text-base font-semibold">2. Use Tea’s in-app report tools (if available)</h3>
+            <p className="text-slate-300 text-sm">
+              Try the built-in report option first, if one exists. Sometimes posts are removed quickly, but often they remain up or responses are delayed.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+            <h3 className="text-base font-semibold">3. Prepare a DMCA-style takedown notice</h3>
+            <p className="text-slate-300 text-sm">
+              Under the DMCA, you have the right to request removal of unauthorized use of your images or content. Draft a notice describing the copyrighted work, where it originally appeared, and why the use is unauthorized.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+            <h3 className="text-base font-semibold">4. Send the notice to Tea and related app-store contacts</h3>
+            <p className="text-slate-300 text-sm">
+              Send your DMCA notice to Tea’s official support and legal channels. Also contact Apple App Store or Google Play Store copyright teams—these are often more responsive.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+            <h3 className="text-base font-semibold">5. Track responses and follow up</h3>
+            <p className="text-slate-300 text-sm">
+              Keep records of all communications. If Tea doesn’t remove the post in a reasonable timeframe, follow up or escalate through app-store channels.
+            </p>
+          </div>
+        </section>
+
+        <section className="space-y-3">
           <h2 className="text-xl font-semibold">
             3. DIY removal: A practical checklist
           </h2>
