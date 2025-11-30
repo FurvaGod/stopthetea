@@ -77,6 +77,19 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          id="gtag-src"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-VZJXPE09HK"
+        />
+        <Script id="gtag-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VZJXPE09HK');
+          `.replace(/\s{2,}/g, " ")}
+        </Script>
         {shouldLoadMetaPixel && metaPixelId && (
           <Script id="meta-pixel" strategy="afterInteractive">
             {`
