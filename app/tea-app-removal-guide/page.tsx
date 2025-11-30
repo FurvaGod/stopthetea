@@ -93,43 +93,50 @@ export default function TeaAppRemovalGuidePage() {
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">Step-by-Step: How to Get Your Post Off the Tea App</h2>
           <p className="text-slate-300">
-            If you’ve been searching for how to get your post off the Tea app, this is the clearest and most reliable method. Many people try in-app reporting first, but that often isn’t enough on its own. This step-by-step process gives you the best chance of getting your post off the Tea app when simple reporting doesn’t work.
+            If you’ve been searching for how to get your post off the Tea app, the most important thing to know is that there isn’t a single magic button. Platforms respond best when you’re organized, calm, and clear about what you want removed and why it shouldn’t be there.
+          </p>
+          <p className="text-slate-300">
+            The steps below outline the general process people follow when they want a post taken down, without going into all the technical details we use behind the scenes.
           </p>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
-            <h3 className="text-base font-semibold">1. Screenshot and document the post</h3>
+            <h3 className="text-base font-semibold">1. Document what’s happening</h3>
             <p className="text-slate-300 text-sm">
-              Capture screenshots of the Tea app post, including the username, any captions, and where in the app it appears. This will be required for the takedown request.
+              Take screenshots of the post, the profile, and anything connected to it. Note the username, how the content is being described, and how it might be affecting you. This gives you a clear record of the situation in case the post changes or disappears temporarily.
             </p>
           </div>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
-            <h3 className="text-base font-semibold">2. Use Tea’s in-app report tools (if available)</h3>
+            <h3 className="text-base font-semibold">2. Use any in-app tools available</h3>
             <p className="text-slate-300 text-sm">
-              Try the built-in report option first, if one exists. Sometimes posts are removed quickly, but often they remain up or responses are delayed.
+              Many apps offer basic reporting options or support forms. These alone don’t always get your post off the Tea app, but using them can create a paper trail and show that you tried to handle things through normal channels first.
             </p>
           </div>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
-            <h3 className="text-base font-semibold">3. Prepare a DMCA-style takedown notice</h3>
+            <h3 className="text-base font-semibold">3. Decide if the content crosses legal or policy lines</h3>
             <p className="text-slate-300 text-sm">
-              Under the DMCA, you have the right to request removal of unauthorized use of your images or content. Draft a notice describing the copyrighted work, where it originally appeared, and why the use is unauthorized.
+              Some posts are just annoying; others clearly cross the line into harassment, unwanted sharing of private photos, or misuse of your content. When you believe a post is seriously harmful or unauthorized, that’s usually when people move beyond simple in-app reports and begin a more formal removal process.
             </p>
           </div>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
-            <h3 className="text-base font-semibold">4. Send the notice to Tea and related app-store contacts</h3>
+            <h3 className="text-base font-semibold">4. Prepare a clear, formal removal request</h3>
             <p className="text-slate-300 text-sm">
-              Send your DMCA notice to Tea’s official support and legal channels. Also contact Apple App Store or Google Play Store copyright teams—these are often more responsive.
+              This is where most people get stuck. A strong removal request is usually structured, specific, and directed to the right places—not just a one-line “please delete this.” It often refers to platform rules or applicable rights and makes it easy for reviewers to understand exactly what should be taken down and why.
             </p>
           </div>
 
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
-            <h3 className="text-base font-semibold">5. Track responses and follow up</h3>
+            <h3 className="text-base font-semibold">5. Follow up and keep track of responses</h3>
             <p className="text-slate-300 text-sm">
-              Keep records of all communications. If Tea doesn’t remove the post in a reasonable timeframe, follow up or escalate through app-store channels.
+              Even a solid request doesn’t always get instant action. People who successfully get their post off the Tea app are usually persistent and organized: they monitor replies, keep copies of communications, and follow up when necessary instead of assuming silence means “no.”
             </p>
           </div>
+
+          <p className="text-slate-300 text-sm">
+            Many people start this process on their own and then realize they don’t have the time or energy to manage all the details. That’s where a dedicated removal service like StopTheTea comes in—we handle the structured requests and follow-up so you don’t have to live in your inbox.
+          </p>
         </section>
 
         <section className="space-y-3">

@@ -59,6 +59,7 @@ export default async function RootLayout({
     { href: "#how-it-works", label: "How It Works" },
     { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
+    { href: "/tea-app-removal-guide", label: "Removal Steps" },
   ];
 
   let session: Session | null = null;
