@@ -8,17 +8,20 @@ import { auth } from "@/lib/auth";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
+const siteTitle = "StopTheTea";
 const baseTitle = "StopTheTea™ | Rapid Tea App Profile Removal";
 const baseDescription =
   "StopTheTea™ removes unauthorized Tea App profiles and harmful posts fast with verified platform policies and a 100% refund guarantee.";
 const heroImage = "/stopthetea-hero.png";
 
 export const metadata: Metadata = {
-  icons: {
-    icon: "/teacrateicon.png",
-  },
-  title: baseTitle,
+  title: siteTitle,
   description: baseDescription,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
+  },
   openGraph: {
     title: baseTitle,
     description: baseDescription,
