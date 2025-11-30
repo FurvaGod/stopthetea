@@ -12,6 +12,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { CreateCaseForm } from "./CreateCaseForm";
 import { LogoutButton } from "./LogoutButton";
+import { DashboardAnalyticsTracker } from "@/app/dashboard/DashboardAnalyticsTracker";
 
 export const dynamic = "force-dynamic";
 
@@ -70,7 +71,11 @@ const BADGE_STYLES: Record<StepState, string> = {
   upcoming: "border-[#E5E7EB] text-[#9CA3AF]",
 };
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | string[] | undefined>;
+}) {
   let session: Awaited<ReturnType<typeof auth>> = null;
   try {
     session = await auth();
@@ -89,8 +94,12 @@ export default async function DashboardPage() {
     (caseItem) => caseItem.status !== "REMOVED" && caseItem.status !== "REFUNDED"
   ).length;
 
+  const caseCreatedFlag = searchParams?.caseCreated === "1";
+  const caseNumber = typeof searchParams?.caseNumber === "string" ? searchParams.caseNumber : undefined;
+
   return (
     <section className="mx-auto max-w-4xl space-y-8 px-4 py-12">
+      <DashboardAnalyticsTracker caseCreated={caseCreatedFlag} caseNumber={caseNumber} />
       <div className="space-y-2">
         <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">Dashboard</p>
         <h1 className="text-3xl font-semibold text-[#0B1F3A]">Your Removal Cases</h1>

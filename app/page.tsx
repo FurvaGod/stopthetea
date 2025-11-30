@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { StartRemovalButton } from "@/components/StartRemovalButton";
 
 export const metadata: Metadata = {
   alternates: {
@@ -119,12 +120,7 @@ export default function Home() {
           <p className="mx-auto max-w-2xl text-base text-slate-200 md:text-lg">
             We remove unauthorized profiles, posts, and harmful “tea” from the Tea app and similar exposure platforms — quickly, discreetly, and through the proper channels.
           </p>
-          <Link
-            href="/intake"
-            className="inline-block rounded-lg bg-[#38B7B0] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#2C8F8A]"
-          >
-            Start Removal
-          </Link>
+          <StartRemovalButton className="inline-block rounded-lg bg-[#38B7B0] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#2C8F8A]" />
           <p className="mt-3 text-sm text-slate-200">100% Removal Guarantee — or your money back.</p>
         </div>
       </section>

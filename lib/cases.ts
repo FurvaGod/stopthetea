@@ -163,26 +163,6 @@ export async function createCaseForUser(userId: string, data: CreateCaseInput): 
   }
 
   const caseNumber = `STT-${randomUUID().slice(0, 8).toUpperCase()}`;
-  const normalizeStorageKey = (value?: string | null) => {
-    if (!value) {
-      return null;
-    }
-    const trimmed = value.trim();
-    if (!trimmed) {
-      return null;
-    }
-    if (trimmed.startsWith("http")) {
-      try {
-        const parsedUrl = new URL(trimmed);
-        const segments = parsedUrl.pathname.split("/").filter(Boolean);
-        return segments.pop() ?? null;
-      } catch {
-        return null;
-      }
-    }
-    return trimmed;
-  };
-
   const screenshotSources =
     data.screenshots
       ?.map((item) => {

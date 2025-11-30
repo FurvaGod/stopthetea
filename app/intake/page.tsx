@@ -3,6 +3,7 @@ import { auth } from "@/lib/auth";
 import { OWNERSHIP_TYPES } from "@/lib/cases";
 import { redirect } from "next/navigation";
 import { ScreenshotUploader } from "@/app/intake/ScreenshotUploader";
+import { IntakeFormAnalyticsTracker } from "@/app/intake/IntakeFormAnalyticsTracker";
 
 export const metadata: Metadata = {
   alternates: {
@@ -32,6 +33,8 @@ export default async function IntakePage({
 
   const today = new Date().toISOString().split("T")[0];
 
+  const formId = "dmca-intake-form";
+
   return (
     <section className="min-h-screen bg-[#F4F6F8] px-4 py-12">
       <div className="mx-auto max-w-4xl space-y-8">
@@ -53,7 +56,7 @@ export default async function IntakePage({
               {errorMessage}
             </p>
           )}
-          <form action="/intake/submit" method="post" className="mt-8 space-y-8">
+          <form id={formId} action="/intake/submit" method="post" className="mt-8 space-y-8">
             <div className="rounded-2xl border border-[#E5E7EB] bg-[#F9FAFB] p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#38B7B0]">Section 1</p>
               <h2 className="mt-2 text-xl font-semibold text-[#0B1F3A]">Copyrighted Work Details</h2>
@@ -344,6 +347,7 @@ export default async function IntakePage({
               </button>
             </div>
           </form>
+          <IntakeFormAnalyticsTracker formId={formId} />
         </div>
       </div>
     </section>

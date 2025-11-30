@@ -86,7 +86,7 @@ export async function GET(request: Request) {
 
     const existingCase = await prisma.case.findUnique({
       where: { id: caseId },
-      select: { userId: true },
+      select: { userId: true, caseNumber: true },
     });
 
     if (!existingCase || existingCase.userId !== session.user.id) {
@@ -94,6 +94,11 @@ export async function GET(request: Request) {
     }
 
     const dashboardUrl = new URL("/dashboard", request.url);
+    dashboardUrl.searchParams.set("caseCreated", "1");
+    dashboardUrl.searchParams.set("caseId", caseId);
+    if (existingCase.caseNumber) {
+      dashboardUrl.searchParams.set("caseNumber", existingCase.caseNumber);
+    }
     const response = NextResponse.redirect(dashboardUrl, { status: 303 });
     clearIntakeSession(response.cookies);
     return response;

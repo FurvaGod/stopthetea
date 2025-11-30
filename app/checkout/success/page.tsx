@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { CheckoutSuccessClient } from "./CheckoutSuccessClient";
 
 export const metadata: Metadata = {
   alternates: {
@@ -16,8 +16,6 @@ export default function CheckoutSuccessPage({
 }) {
   const sessionId =
     typeof searchParams?.session_id === "string" ? searchParams.session_id : undefined;
-  if (sessionId) {
-    redirect(`/intake/success?session_id=${encodeURIComponent(sessionId)}`);
-  }
-  redirect("/intake");
+
+  return <CheckoutSuccessClient sessionId={sessionId} />;
 }
