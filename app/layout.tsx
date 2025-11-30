@@ -122,7 +122,7 @@ export default async function RootLayout({
           </noscript>
         )}
         <header className="bg-[#0B1F3A] text-white border-b border-white/10">
-          <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-4">
+          <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:gap-6">
             <Link href="/" className="flex items-center">
               <Image
                 src="/stopthetea-logo-transparent.png"
@@ -133,14 +133,14 @@ export default async function RootLayout({
                 priority
               />
             </Link>
-            <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
+            <nav className="flex w-full flex-wrap items-center justify-center gap-4 text-sm font-medium md:w-auto md:flex-nowrap md:justify-start">
               {navLinks.map((link) => (
                 <a key={link.href} href={link.href} className="text-white/80 transition hover:text-white">
                   {link.label}
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-6 ml-auto">
+            <div className="flex items-center gap-4 md:ml-auto">
               {isAuthenticated ? (
                 <Link
                   href="/dashboard"
