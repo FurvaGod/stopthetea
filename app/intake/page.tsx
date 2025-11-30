@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import { auth } from "@/lib/auth";
 import { OWNERSHIP_TYPES } from "@/lib/cases";
 import { redirect } from "next/navigation";
 import { ScreenshotUploader } from "@/app/intake/ScreenshotUploader";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.stopthetea.com/intake",
+  },
+};
+
+export const dynamic = "force-dynamic";
 
 type SearchParams = {
   [key: string]: string | string[] | undefined;

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.stopthetea.com/legal/refund",
+  },
+};
 
 type SectionProps = {
   title: string;

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect, notFound } from "next/navigation";
 import { auth } from "@/lib/auth";
@@ -7,6 +8,12 @@ import { buildScreenshotDownloadUrl, parseScreenshotKeys } from "@/lib/screensho
 import { updateCaseStatusAction } from "./actions";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.stopthetea.com/admin/cases",
+  },
+};
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { auth } from "@/lib/auth";
 import {
@@ -13,6 +14,12 @@ import { CreateCaseForm } from "./CreateCaseForm";
 import { LogoutButton } from "./LogoutButton";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.stopthetea.com/dashboard",
+  },
+};
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",

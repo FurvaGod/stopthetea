@@ -8,14 +8,17 @@ import { auth } from "@/lib/auth";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
-const siteTitle = "StopTheTea";
-const baseTitle = "StopTheTea™ | Rapid Tea App Profile Removal";
+const marketingTitle = "StopTheTea™ – Online Exposure Removal Service";
 const baseDescription =
-  "StopTheTea™ removes unauthorized Tea App profiles and harmful posts fast with verified platform policies and a 100% refund guarantee.";
-const heroImage = "/stopthetea-hero.png";
+  "We help students, creators, and individuals remove harmful online posts quickly and confidentially.";
+const openGraphTitle = "StopTheTea™ – Exposure Removal Service";
+const openGraphDescription =
+  "Fast, confidential removal of harmful posts, screenshots, leaks, and defamation.";
+const heroImage = "/og-image.png";
 
 export const metadata: Metadata = {
-  title: siteTitle,
+  metadataBase: new URL("https://www.stopthetea.com"),
+  title: marketingTitle,
   description: baseDescription,
   icons: {
     icon: "/favicon.ico",
@@ -23,21 +26,23 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   openGraph: {
-    title: baseTitle,
-    description: baseDescription,
+    title: openGraphTitle,
+    description: openGraphDescription,
+    url: "https://www.stopthetea.com",
+    siteName: "StopTheTea",
+    type: "website",
     images: [
       {
         url: heroImage,
         width: 1200,
         height: 630,
-        alt: "StopTheTea hero image",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: baseTitle,
-    description: baseDescription,
+    title: "StopTheTea™ – Online Reputation Protection",
+    description: "We remove harmful online posts quickly and confidentially.",
     images: [heroImage],
   },
 };

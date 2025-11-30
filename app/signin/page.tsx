@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { GoogleSignInButton } from "./GoogleSignInButton";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.stopthetea.com/signin",
+  },
+};
+
+export const dynamic = "force-dynamic";
 
 interface SignInPageProps {
   searchParams: Promise<{

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { OWNERSHIP_TYPES, type CreateCaseInput, type OwnershipType, type ScreenshotPayload } from "@/lib/cases";
