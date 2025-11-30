@@ -301,7 +301,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="max-w-5xl mx-auto px-4 py-12 space-y-6">
+        <section id="faq" className="max-w-5xl mx-auto px-4 py-12 space-y-6">
           <h2 className="text-2xl font-semibold text-slate-50">Frequently asked questions</h2>
 
           <div className="space-y-4">

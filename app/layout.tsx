@@ -55,10 +55,10 @@ export default async function RootLayout({
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const shouldLoadMetaPixel = process.env.NODE_ENV === "production" && Boolean(metaPixelId);
   const navLinks = [
-    { href: "#what-we-do", label: "What We Do" },
-    { href: "#how-it-works", label: "How It Works" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#faq", label: "FAQ" },
+    { href: "/#what-we-do", label: "What We Do" },
+    { href: "/#how-it-works", label: "How It Works" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/#faq", label: "FAQ" },
     { href: "/tea-app-removal-guide", label: "Removal Steps" },
   ];
 
