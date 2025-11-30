@@ -21,7 +21,7 @@ export default function TeaAppRemovalGuidePage() {
             Tea App Removal Guide: How to Get Harmful Posts Taken Down
           </h1>
           <p className="text-slate-300">
-            If you've discovered yourself on the Tea app or a similar exposure
+            If you&rsquo;ve discovered yourself on the Tea app or a similar exposure
             platform, it can feel like your privacy and reputation are completely
             out of your control. This guide walks through practical steps you can
             take to get posts removed, including how the DMCA process works and
@@ -35,7 +35,7 @@ export default function TeaAppRemovalGuidePage() {
               Start a removal with StopTheTea
             </Link>
             <p className="text-xs text-slate-400">
-              No vague forms. Clear process. Money-back guarantee if we can't remove it.
+              No vague forms. Clear process. Money-back guarantee if we can&rsquo;t remove it.
             </p>
           </div>
         </header>
@@ -48,7 +48,7 @@ export default function TeaAppRemovalGuidePage() {
             The Tea app and similar platforms are built around anonymous posts,
             screenshots, and submissions about private people. Content often spreads
             quickly, gets screen-recorded, and can be re-uploaded multiple times.
-            That makes simple "report" buttons feel useless when you're the
+            That makes simple &quot;report&quot; buttons feel useless when you&rsquo;re the
             one being exposed.
           </p>
           <p className="text-slate-300">
@@ -60,8 +60,8 @@ export default function TeaAppRemovalGuidePage() {
             <li>Duplicated by users who save and repost it elsewhere</li>
           </ul>
           <p className="text-slate-300">
-            That's why effective removal usually requires a legal-based process,
-            not just tapping "report" and hoping someone on support answers.
+            That&rsquo;s why effective removal usually requires a legal-based process,
+            not just tapping &quot;report&quot; and hoping someone on support answers.
           </p>
         </section>
 
@@ -178,7 +178,7 @@ export default function TeaAppRemovalGuidePage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold">4. When DIY removal isn't enough</h2>
+          <h2 className="text-xl font-semibold">4. When DIY removal isn&rsquo;t enough</h2>
           <p className="text-slate-300">
             Some people get results alone; others face delays or ignored tickets.
           </p>

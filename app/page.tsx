@@ -294,7 +294,7 @@ export default function Home() {
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
               <p className="text-sm font-semibold text-slate-50">Money-back guarantee</p>
               <p className="text-xs text-slate-300">
-                If we can't remove it within the agreed scope, you get a refund.
+                If we can&rsquo;t remove it within the agreed scope, you get a refund.
               </p>
             </div>
 
