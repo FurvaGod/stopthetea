@@ -5,9 +5,9 @@ import { auth } from "@/lib/auth";
 import { GoogleSignInButton } from "./GoogleSignInButton";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.stopthetea.com/signin",
-  },
+  title: "Client Login – StopTheTea™",
+  description: "Sign in to securely track your removal request.",
+  alternates: { canonical: "https://www.stopthetea.com/signin" },
 };
 
 export const dynamic = "force-dynamic";

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.stopthetea.com/checkout/cancel",
-  },
+  title: "Payment Canceled – StopTheTea™",
+  description: "Your payment was canceled. You may restart your request anytime.",
 };
 
 export const dynamic = "force-dynamic";

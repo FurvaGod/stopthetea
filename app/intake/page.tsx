@@ -6,9 +6,9 @@ import { ScreenshotUploader } from "@/app/intake/ScreenshotUploader";
 import { IntakeFormAnalyticsTracker } from "@/app/intake/IntakeFormAnalyticsTracker";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.stopthetea.com/intake",
-  },
+  title: "Start a Takedown Request – StopTheTea™",
+  description: "Submit details securely to begin your removal request.",
+  alternates: { canonical: "https://www.stopthetea.com/intake" },
 };
 
 export const dynamic = "force-dynamic";

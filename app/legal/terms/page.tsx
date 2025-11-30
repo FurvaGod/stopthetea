@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.stopthetea.com/legal/terms",
-  },
+  title: "Terms of Service – StopTheTea™",
+  description: "Review the terms governing your use of StopTheTea.",
+  alternates: { canonical: "https://www.stopthetea.com/legal/terms" },
 };
 
 type SectionProps = {

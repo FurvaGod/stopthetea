@@ -4,6 +4,9 @@ import Link from "next/link";
 import { StartRemovalButton } from "@/components/StartRemovalButton";
 
 export const metadata: Metadata = {
+  title: "StopTheTea™ – Remove Harmful Tea App Posts & Profiles",
+  description:
+    "Professional DMCA-style takedown support for Tea app and similar platforms. Confidential, fast, and backed by a money-back guarantee.",
   alternates: {
     canonical: "https://www.stopthetea.com",
   },
@@ -51,29 +54,6 @@ const processSteps = [
   {
     title: "We submit and escalate.",
     description: "We send the request through the proper channels, follow up, and escalate until the removal is completed or deemed impossible.",
-  },
-];
-
-const faqs = [
-  {
-    question: "What types of profiles can you remove?",
-    answer:
-      "We focus on removing unauthorized or harmful profiles from the Tea app and similar exposure platforms.",
-  },
-  {
-    question: "Can you remove damaging or defamatory commentary?",
-    answer:
-      "Yes. When platforms permit removal based on harmful or false commentary, we include those details in your request and structure the case accordingly.",
-  },
-  {
-    question: "Can you remove photos posted without my consent?",
-    answer:
-      "Yes. We prioritize requests involving personal photos or details uploaded without permission or used in a misleading way.",
-  },
-  {
-    question: "What if my content isn’t removed?",
-    answer:
-      "Our service is backed by a 100% Removal Guarantee. If we cannot secure removal after completing the full request and escalation process, we issue a full refund.",
   },
 ];
 
@@ -288,26 +268,76 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="bg-slate-950">
+        <section className="max-w-5xl mx-auto px-4 py-12 space-y-6">
+          <h2 className="text-2xl font-semibold text-slate-50">Why people trust StopTheTea</h2>
+          <p className="text-slate-300 text-sm max-w-2xl">
+            StopTheTea is built around clear, legal-first removal requests and straightforward communication.
+          </p>
 
-      <section id="faq" className="px-4">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center md:text-left">
-            <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">FAQ</p>
-            <h2 className="mt-2 text-2xl font-semibold text-[#0B1F3A]">Answers to common questions</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">Legal-based process</p>
+              <p className="text-xs text-slate-300">
+                Structured takedown notices, not ignored support tickets.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">Confidential intake</p>
+              <p className="text-xs text-slate-300">
+                Your details are secured and never shared for marketing.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">Money-back guarantee</p>
+              <p className="text-xs text-slate-300">
+                If we can't remove it within the agreed scope, you get a refund.
+              </p>
+            </div>
+
           </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {faqs.map((faq) => (
-              <article
-                key={faq.question}
-                className="rounded-lg border border-[#D1D5DB] border-l-4 border-l-[#38B7B0] bg-white p-5"
-              >
-                <h3 className="text-lg font-semibold text-[#0B1F3A]">{faq.question}</h3>
-                <p className="mt-2 text-sm text-[#1F2530]">{faq.answer}</p>
-              </article>
-            ))}
+        </section>
+
+        <section className="max-w-5xl mx-auto px-4 py-12 space-y-6">
+          <h2 className="text-2xl font-semibold text-slate-50">Frequently asked questions</h2>
+
+          <div className="space-y-4">
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">How long does removal take?</p>
+              <p className="text-xs text-slate-300">Most cases begin seeing movement within a few days.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">What if you can’t remove the content?</p>
+              <p className="text-xs text-slate-300">Our refund guarantee applies if we can’t meet the agreed scope.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">Do you contact the user who posted it?</p>
+              <p className="text-xs text-slate-300">No. We only contact platform channels, never individuals.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">Is my information confidential?</p>
+              <p className="text-xs text-slate-300">
+                Yes. Your intake details are secured and never reused or sold.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">Is StopTheTea a law firm?</p>
+              <p className="text-xs text-slate-300">
+                No. We are a removal support service and do not provide legal advice.
+              </p>
+            </div>
+
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

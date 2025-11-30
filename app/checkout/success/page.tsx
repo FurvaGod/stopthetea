@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { CheckoutSuccessClient } from "./CheckoutSuccessClient";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.stopthetea.com/checkout/success",
-  },
+  title: "Payment Successful – StopTheTea™",
+  description: "Your case intake is being processed.",
 };
 
 export const dynamic = "force-dynamic";

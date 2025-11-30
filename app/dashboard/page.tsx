@@ -17,9 +17,9 @@ import { DashboardAnalyticsTracker } from "@/app/dashboard/DashboardAnalyticsTra
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.stopthetea.com/dashboard",
-  },
+  title: "Dashboard – StopTheTea™",
+  description: "View takedown progress and case details.",
+  alternates: { canonical: "https://www.stopthetea.com/dashboard" },
 };
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
