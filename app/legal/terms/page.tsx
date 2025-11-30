@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
 
         <TermsSection title="Payment & Guarantee">
           <p>
-            StopTheTea charges a flat $399 fee processed securely through Stripe at the start of each case. Fees cover research,
+            StopTheTea charges a flat $99.99 fee processed securely through Stripe at the start of each case. Fees cover research,
             drafting, platform submission, and escalation attempts. If our team completes the full process yet the platform
             refuses to remove the content, you may request a refund under the terms outlined at <a className="text-[#0B1F3A] underline" href="/legal/refund">/legal/refund</a>.
           </p>

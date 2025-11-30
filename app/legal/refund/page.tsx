@@ -35,7 +35,7 @@ export default function RefundPolicyPage() {
         <RefundSection title="100% Removal Guarantee">
           <p>
             Every case includes our Removal Guarantee: if we cannot secure removal after completing our entire submission and
-            escalation process with the relevant platform(s), we issue a full refund of the $399 fee. This guarantee is the sole
+            escalation process with the relevant platform(s), we issue a full refund of the $99.99 fee. This guarantee is the sole
             remedy for unsuccessful removals and applies per individual case purchased through Stripe.
           </p>
         </RefundSection>

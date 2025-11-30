@@ -44,7 +44,7 @@ export function IntakeFormAnalyticsTracker({ formId }: IntakeFormAnalyticsTracke
         page_location: pageLocation,
       });
       trackEvent("checkout_started", {
-        value: 499,
+        value: 99.99,
         currency: "USD",
         page_location: pageLocation,
       });

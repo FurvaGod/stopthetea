@@ -33,7 +33,7 @@ const stats = [
     subtitle: "Profile & content removal",
   },
   {
-    title: "Fixed $399 fee",
+    title: "Fixed $99.99 fee",
     subtitle: "No subscriptions or hidden charges",
   },
   {
@@ -193,7 +193,7 @@ export default function Home() {
       <section id="pricing" className="px-4">
         <div className="mx-auto max-w-4xl rounded-2xl border border-[#D1D5DB] bg-white px-6 py-10 text-center shadow-sm">
           <p className="text-sm uppercase tracking-[0.2em] text-[#CBAF6B]">Transparent Pricing</p>
-          <h2 className="mt-3 text-3xl font-semibold text-[#0B1F3A]">Takedown Processing Fee: $399</h2>
+          <h2 className="mt-3 text-3xl font-semibold text-[#0B1F3A]">Takedown Processing Fee: $99.99</h2>
           <p className="mt-4 text-base text-[#1F2530]">
             A one-time service covering full case handling: documenting your situation, preparing a formal removal request, and
             submitting it to the appropriate platform channels to remove unauthorized profiles, photos, and harmful commentary

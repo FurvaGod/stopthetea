@@ -17,7 +17,7 @@ If the user abandons checkout, no case is created and the encrypted payload even
 | Name | Purpose |
 | --- | --- |
 | `STRIPE_SECRET_KEY` | Server-side Stripe API key used by checkout + success handlers. |
-| `STRIPE_PRICE_ID` | Price configured for the $399 removal fee. |
+| `STRIPE_PRICE_ID` | Price configured for the $99.99 removal fee. |
 | `INTAKE_SESSION_SECRET` | 32+ character secret for encrypting the intake payload stored in cookies. |
 | `RESEND_API_KEY` | Sends the “Case Received” email after payment succeeds. |
 | `NEXTAUTH_URL`, `NEXTAUTH_SECRET`, Google OAuth keys | Required for NextAuth Google sign-in. |
@@ -58,3 +58,4 @@ npx prisma migrate dev# apply the latest Prisma schema (drops PendingCase table)
 - `/admin/cases` requires sign-in with one of the `ADMIN_EMAILS` addresses and surfaces every case with user email, platform link, evidence links, created timestamp, and live status.
 - Each row has an inline status selector that uses a server action, so staff can manually advance or roll back cases without touching the database.
 - The “Download CSV” button calls `/admin/cases/export`, streaming a spreadsheet-friendly snapshot (case number, customer email, platform link, timestamp, screenshot URLs, status) for audits or offline analysis.
+Deployed from Mac on 2025-11-27.

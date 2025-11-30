@@ -15,7 +15,7 @@ export function CheckoutSuccessClient({ sessionId }: CheckoutSuccessClientProps)
     const pageLocation = typeof window !== "undefined" ? window.location.href : undefined;
 
     trackEvent("checkout_success", {
-      value: 499,
+      value: 99.99,
       currency: "USD",
       transaction_id: sessionId,
       page_location: pageLocation,
