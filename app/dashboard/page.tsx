@@ -296,11 +296,11 @@ export default async function DashboardPage({
                     <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#38B7B0]">Infringing Material</h4>
                     <dl className="mt-4 space-y-2 text-sm text-[#1F2530]">
                       <div>
-                        <dt className="text-[#6B7280]">Tea username</dt>
+                        <dt className="text-[#6B7280]">Platform username (Tea, TeaOnHer, etc.)</dt>
                         <dd>{caseItem.teaUsername ?? "—"}</dd>
                       </div>
                       <div>
-                        <dt className="text-[#6B7280]">Tea profile</dt>
+                        <dt className="text-[#6B7280]">Profile link on Tea, TeaOnHer, or similar app</dt>
                         <dd>
                           {caseItem.teaProfileUrl ? (
                             <Link

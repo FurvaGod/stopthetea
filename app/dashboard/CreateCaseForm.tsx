@@ -11,15 +11,15 @@ export function CreateCaseForm() {
         <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">New request</p>
         <h2 className="mt-2 text-xl font-semibold text-[#0B1F3A]">Need to file a DMCA today?</h2>
         <p className="mt-2 text-sm text-[#3E4A56]">
-          Use our guided intake form to capture every detail we need to generate a compliant DMCA takedown notice for
-          Tea.
+          Use our guided intake form to capture every detail we need to generate a compliant DMCA takedown notice for Tea,
+          TeaOnHer, or similar anonymous gossip apps.
         </p>
       </div>
       <div className="rounded-xl bg-[#F4F6F8] p-4 text-sm text-[#1F2530]">
         <p className="font-semibold text-[#0B1F3A]">What you&apos;ll need</p>
         <ul className="mt-2 list-disc space-y-1 pl-5 text-[#3E4A56]">
           <li>Proof you own the original work</li>
-          <li>Where the infringing content appears on Tea</li>
+          <li>Where the infringing content appears on Tea, TeaOnHer, or similar apps</li>
           <li>Contact details for legal follow-up</li>
         </ul>
       </div>

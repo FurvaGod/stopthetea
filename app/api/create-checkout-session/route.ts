@@ -69,6 +69,7 @@ export async function GET(request: Request) {
           quantity: 1,
         },
       ],
+      allow_promotion_codes: true,
       metadata,
       payment_intent_data: {
         metadata,

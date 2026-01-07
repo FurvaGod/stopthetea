@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy – StopTheTea™",
-  description: "Learn how your personal information is collected and used.",
+  description: "Learn how StopTheTea handles data while removing posts from Tea, TeaOnHer, and similar apps.",
   alternates: { canonical: "https://www.stopthetea.com/legal/privacy" },
 };
 
@@ -35,16 +35,17 @@ export default function PrivacyPolicyPage() {
         <PrivacySection title="Information We Collect">
           <p>
             We collect only the information required to build a complete removal request: your name, contact details, preferred
-            communication channels, descriptions of the infringing content, relevant links, account usernames, and supporting
-            screenshots or video captures. When you sign in with Google we receive basic profile data from the provider.
+            communication channels, descriptions of the infringing content, relevant links, account usernames for Tea, TeaOnHer,
+            or comparable platforms, and supporting screenshots or video captures. When you sign in with Google we receive basic
+            profile data from the provider.
           </p>
         </PrivacySection>
 
         <PrivacySection title="How We Use Your Data">
           <p>
-            Data is used to authenticate your account, draft DMCA notices, submit forms to Tea and similar platforms, and keep you
-            informed about case progress. We may reference anonymized aggregates to improve our workflows, but we do not profile
-            users for advertising or share information with unrelated third parties.
+            Data is used to authenticate your account, draft DMCA notices, submit forms to Tea, TeaOnHer, and similar anonymous
+            gossip apps, and keep you informed about case progress. We may reference anonymized aggregates to improve our
+            workflows, but we do not profile users for advertising or share information with unrelated third parties.
           </p>
         </PrivacySection>
 
@@ -76,6 +77,14 @@ export default function PrivacyPolicyPage() {
             You may request access, corrections, or deletion of your data by emailing <a className="text-[#0B1F3A] underline" href="mailto:support@stopthetea.com">support@stopthetea.com</a>. For
             privacy-specific questions, contact <a className="text-[#0B1F3A] underline" href="mailto:privacy@stopthetea.com">privacy@stopthetea.com</a>. We respond to verified requests within 30
             days.
+          </p>
+        </PrivacySection>
+
+        <PrivacySection title="Platform Coverage">
+          <p>
+            This privacy policy applies to every removal we pursue across Tea, TeaOnHer, and any similar anonymous gossip or
+            exposure app. If a new app mirrors the same behavior, we treat your information with the same protections described
+            here.
           </p>
         </PrivacySection>
       </div>

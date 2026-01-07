@@ -55,6 +55,10 @@ export async function GET(request: Request) {
     const lineItemQuantity = singleLineItem?.quantity ?? 0;
     const expectedUnitAmount = lineItemPrice?.unit_amount ?? 0;
     const sessionAmountTotal = checkoutSession.amount_total ?? 0;
+    const discountTotal = checkoutSession.total_details?.amount_discount ?? 0;
+    const taxTotal = checkoutSession.total_details?.amount_tax ?? 0;
+    // Stripe keeps totals in the smallest currency unit (cents). Adjust for discounts/taxes to allow promo codes.
+    const adjustedTotal = Math.max(expectedUnitAmount - discountTotal + taxTotal, 0);
 
     // Defensive validation so users cannot spoof callbacks with cheaper amounts or different products.
     if (!singleLineItem || !lineItemPrice || lineItems.length !== 1) {
@@ -65,7 +69,16 @@ export async function GET(request: Request) {
       return errorRedirect(request, "Line item mismatch detected. Contact support with your receipt.");
     }
 
-    if (!expectedUnitAmount || expectedUnitAmount !== sessionAmountTotal) {
+    if (!expectedUnitAmount) {
+      return errorRedirect(request, "Unable to verify product amount. Contact support.");
+    }
+
+    const amountMatchesWithoutAdjustments = sessionAmountTotal === expectedUnitAmount;
+    const amountMatchesWithAdjustments = sessionAmountTotal === adjustedTotal;
+    const amountWithinExpectedRange =
+      sessionAmountTotal >= 0 && sessionAmountTotal <= expectedUnitAmount && adjustedTotal <= expectedUnitAmount;
+
+    if (!amountMatchesWithoutAdjustments && !amountMatchesWithAdjustments && !amountWithinExpectedRange) {
       return errorRedirect(request, "Charged amount did not match this product. Contact support.");
     }
 

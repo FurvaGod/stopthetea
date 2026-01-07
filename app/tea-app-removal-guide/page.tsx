@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Tea App Removal Guide – How to Get Harmful Posts Taken Down | StopTheTea™",
+  title: "Tea, TeaOnHer & Similar App Removal Guide – How to Get Harmful Posts Taken Down | StopTheTea™",
   description:
-    "Step-by-step guide to removing harmful Tea app posts and profiles. Learn the DMCA process, what evidence to collect, and when to use a professional removal service.",
+    "Step-by-step guide to removing harmful Tea, TeaOnHer, and similar anonymous app posts and profiles. Learn the DMCA process, what evidence to collect, and when to use a professional removal service.",
   alternates: {
     canonical: "https://www.stopthetea.com/tea-app-removal-guide",
   },
@@ -15,17 +15,15 @@ export default function TeaAppRemovalGuidePage() {
       <section className="max-w-4xl mx-auto px-4 py-16 space-y-8">
         <header className="space-y-4">
           <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-            Tea App · Online Exposure
+            Tea, TeaOnHer & Similar Apps · Online Exposure
           </p>
           <h1 className="text-3xl sm:text-4xl font-semibold">
-            Tea App Removal Guide: How to Get Harmful Posts Taken Down
+            Tea, TeaOnHer & Similar App Removal Guide: How to Get Harmful Posts Taken Down
           </h1>
           <p className="text-slate-300">
-            If you&rsquo;ve discovered yourself on the Tea app or a similar exposure
-            platform, it can feel like your privacy and reputation are completely
-            out of your control. This guide walks through practical steps you can
-            take to get posts removed, including how the DMCA process works and
-            when it makes sense to use a professional removal service.
+            If you&rsquo;ve discovered yourself on Tea, TeaOnHer, or another anonymous exposure app, it can feel like your privacy
+            and reputation are completely out of your control. This guide walks through practical steps you can take to get
+            posts removed, including how the DMCA process works and when it makes sense to use a professional removal service.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -42,14 +40,12 @@ export default function TeaAppRemovalGuidePage() {
 
         <section className="space-y-3">
           <h2 className="text-xl font-semibold">
-            1. What is the Tea app and why is removal difficult?
+              1. What are Tea, TeaOnHer, and similar apps—and why is removal difficult?
           </h2>
           <p className="text-slate-300">
-            The Tea app and similar platforms are built around anonymous posts,
-            screenshots, and submissions about private people. Content often spreads
-            quickly, gets screen-recorded, and can be re-uploaded multiple times.
-            That makes simple &quot;report&quot; buttons feel useless when you&rsquo;re the
-            one being exposed.
+              Tea, TeaOnHer, and similar platforms are built around anonymous posts, screenshots, and submissions about private
+              people. Content often spreads quickly, gets screen-recorded, and can be re-uploaded multiple times. That makes
+              simple &quot;report&quot; buttons feel useless when you&rsquo;re the one being exposed.
           </p>
           <p className="text-slate-300">
             The core problem is that your photo or information may be:
@@ -70,8 +66,8 @@ export default function TeaAppRemovalGuidePage() {
             2. Your rights and the DMCA in plain language
           </h2>
           <p className="text-slate-300">
-            In many cases, harmful Tea-style posts involve unauthorized use of
-            photos, screenshots, or other copyrighted material. The{" "}
+            In many cases, harmful posts on Tea, TeaOnHer, or similar apps involve unauthorized use of photos, screenshots, or
+            other copyrighted material. The{" "}
             <span className="font-medium">Digital Millennium Copyright Act (DMCA)</span>{" "}
             gives rights-holders (or their authorized representatives) a way to
             demand removal of that content from online platforms and app stores.
@@ -91,9 +87,11 @@ export default function TeaAppRemovalGuidePage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold">Step-by-Step: How to Get Your Post Off the Tea App</h2>
+          <h2 className="text-xl font-semibold">Step-by-Step: How to Get Your Post Off Tea, TeaOnHer, or Similar Apps</h2>
           <p className="text-slate-300">
-            If you’ve been searching for how to get your post off the Tea app, the most important thing to know is that there isn’t a single magic button. Platforms respond best when you’re organized, calm, and clear about what you want removed and why it shouldn’t be there.
+            If you’ve been searching for how to get your post off Tea, TeaOnHer, or another anonymous gossip app, the most
+            important thing to know is that there isn’t a single magic button. Platforms respond best when you’re organized,
+            calm, and clear about what you want removed and why it shouldn’t be there.
           </p>
           <p className="text-slate-300">
             The steps below outline the general process people follow when they want a post taken down, without going into all the technical details we use behind the scenes.
@@ -109,7 +107,9 @@ export default function TeaAppRemovalGuidePage() {
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
             <h3 className="text-base font-semibold">2. Use any in-app tools available</h3>
             <p className="text-slate-300 text-sm">
-              Many apps offer basic reporting options or support forms. These alone don’t always get your post off the Tea app, but using them can create a paper trail and show that you tried to handle things through normal channels first.
+              Many apps offer basic reporting options or support forms. These alone don’t always get your post off Tea or
+              TeaOnHer, but using them can create a paper trail and show that you tried to handle things through normal
+              channels first.
             </p>
           </div>
 
@@ -130,12 +130,16 @@ export default function TeaAppRemovalGuidePage() {
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
             <h3 className="text-base font-semibold">5. Follow up and keep track of responses</h3>
             <p className="text-slate-300 text-sm">
-              Even a solid request doesn’t always get instant action. People who successfully get their post off the Tea app are usually persistent and organized: they monitor replies, keep copies of communications, and follow up when necessary instead of assuming silence means “no.”
+              Even a solid request doesn’t always get instant action. People who successfully get their post off Tea, TeaOnHer,
+              or similar apps are usually persistent and organized: they monitor replies, keep copies of communications, and
+              follow up when necessary instead of assuming silence means “no.”
             </p>
           </div>
 
           <p className="text-slate-300 text-sm">
-            Many people start this process on their own and then realize they don’t have the time or energy to manage all the details. That’s where a dedicated removal service like StopTheTea comes in—we handle the structured requests and follow-up so you don’t have to live in your inbox.
+            Many people start this process on their own and then realize they don’t have the time or energy to manage all the
+            details. That’s where a dedicated removal service like StopTheTea comes in—we handle the structured requests and
+            follow-up so you don’t have to live in your inbox.
           </p>
         </section>
 
@@ -147,7 +151,7 @@ export default function TeaAppRemovalGuidePage() {
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
             <h3 className="text-base font-semibold">Step 1: Collect evidence</h3>
             <ul className="list-disc list-inside text-slate-300 space-y-1">
-              <li>Screenshots of the Tea app post or profile</li>
+              <li>Screenshots of the Tea, TeaOnHer, or similar app post or profile</li>
               <li>Username or profile ID</li>
               <li>Any shareable or web URLs</li>
             </ul>

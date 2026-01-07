@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Refund Policy – StopTheTea™",
-  description: "Understand our money-back guarantee and refund terms.",
+  description: "Understand our money-back guarantee for Tea, TeaOnHer, and similar anonymous app removals.",
   alternates: { canonical: "https://www.stopthetea.com/legal/refund" },
 };
 
@@ -36,7 +36,8 @@ export default function RefundPolicyPage() {
           <p>
             Every case includes our Removal Guarantee: if we cannot secure removal after completing our entire submission and
             escalation process with the relevant platform(s), we issue a full refund of the $99.99 fee. This guarantee is the sole
-            remedy for unsuccessful removals and applies per individual case purchased through Stripe.
+            remedy for unsuccessful removals and applies per individual case purchased through Stripe, whether the target is Tea,
+            TeaOnHer, or a similar anonymous gossip app.
           </p>
         </RefundSection>
 

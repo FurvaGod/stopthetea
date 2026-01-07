@@ -8,12 +8,12 @@ import { auth } from "@/lib/auth";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
-const marketingTitle = "StopTheTea™ – Online Exposure Removal Service";
+const marketingTitle = "StopTheTea™ – Tea, TeaOnHer & Similar App Removal";
 const baseDescription =
-  "We help students, creators, and individuals remove harmful online posts quickly and confidentially.";
-const openGraphTitle = "StopTheTea™ – Exposure Removal Service";
+  "We help students, creators, and individuals remove harmful posts from Tea, TeaOnHer, and similar anonymous gossip platforms.";
+const openGraphTitle = "StopTheTea™ – Remove Posts from Tea, TeaOnHer & Similar Apps";
 const openGraphDescription =
-  "Fast, confidential removal of harmful posts, screenshots, leaks, and defamation.";
+  "Fast, confidential removal of harmful posts, screenshots, leaks, and defamation from Tea, TeaOnHer, and other exposure apps.";
 const heroImage = "/og-image.png";
 
 export const metadata: Metadata = {
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "StopTheTea™ – Online Reputation Protection",
-    description: "We remove harmful online posts quickly and confidentially.",
+    title: "StopTheTea™ – Remove Gossip App Posts",
+    description: "We remove harmful Tea, TeaOnHer, and similar anonymous app posts quickly and confidentially.",
     images: [heroImage],
   },
 };
@@ -233,7 +233,7 @@ export default async function RootLayout({
                 <p>We’ve been stopping bad tea since 1773.</p>
               </div>
               <p className="text-xs text-[#3E4A56]">Guaranteed removal or your money back.</p>
-              <p className="text-xs text-[#3E4A56]">StopTheTea™ is not affiliated with the Tea App, Apple, or any third-party platform.</p>
+              <p className="text-xs text-[#3E4A56]">StopTheTea™ is not affiliated with Tea, TeaOnHer, or any third-party platform.</p>
             </div>
           </div>
         </footer>

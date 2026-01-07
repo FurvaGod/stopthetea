@@ -4,28 +4,14 @@ import Link from "next/link";
 import { StartRemovalButton } from "@/components/StartRemovalButton";
 
 export const metadata: Metadata = {
-  title: "StopTheTea™ – Remove Harmful Tea App Posts & Profiles",
+  title: "StopTheTea™ – Remove Harmful Posts from Tea, TeaOnHer & Similar Apps",
   description:
-    "Professional DMCA-style takedown support for Tea app and similar platforms. Confidential, fast, and backed by a money-back guarantee.",
+    "Professional DMCA-style takedown support for Tea, TeaOnHer, and other anonymous gossip apps. Confidential, fast, and backed by a money-back guarantee.",
   alternates: {
     canonical: "https://www.stopthetea.com",
   },
 };
 
-const offerings = [
-  {
-    title: "Profile Removal",
-    body: "We target unauthorized Tea and exposure app profiles created without consent.",
-  },
-  {
-    title: "Content Cleanup",
-    body: "We work to remove posts, photos, and uploads that misuse your image or personal details.",
-  },
-  {
-    title: "Damage Control",
-    body: "We address harmful or misleading commentary by preparing detailed removal requests.",
-  },
-];
 
 const stats = [
   {
@@ -44,16 +30,20 @@ const stats = [
 
 const processSteps = [
   {
-    title: "Tell us what was posted.",
-    description: "You share links, screenshots, and the context around the unauthorized profile or content.",
+    title: "Submit the link to the post.",
+    description: "Share the post or profile URL from Tea, TeaOnHer, or a similar app plus any screenshots.",
   },
   {
-    title: "We prepare your formal removal request.",
-    description: "We document the issue, collect supporting evidence, and draft a platform-compliant submission.",
+    title: "We review the content.",
+    description: "Our team determines the best removal pathway for that platform and situation.",
   },
   {
-    title: "We submit and escalate.",
-    description: "We send the request through the proper channels, follow up, and escalate until the removal is completed or deemed impossible.",
+    title: "We prepare and send the request.",
+    description: "We draft the takedown based on each platform’s policies and file it through compliant channels.",
+  },
+  {
+    title: "We confirm the outcome.",
+    description: "Once the post is removed or updated, we notify you (or explain the next escalation).",
   },
 ];
 
@@ -96,9 +86,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#0B1F3A]/70" />
         <div className="relative z-10 max-w-3xl space-y-4">
           <p className="text-sm uppercase tracking-[0.25em] text-[#38B7B0]">StopTheTea™ Profile Desk</p>
-          <h1 className="text-3xl font-bold leading-tight md:text-4xl">Take Back Control of Your Online Image</h1>
+          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
+            Get your post removed from Tea, TeaOnHer, and similar anonymous gossip apps.
+          </h1>
           <p className="mx-auto max-w-2xl text-base text-slate-200 md:text-lg">
-            We remove unauthorized profiles, posts, and harmful “tea” from the Tea app and similar exposure platforms — quickly, discreetly, and through the proper channels.
+            StopTheTea™ removes harmful posts and profiles from Tea, TeaOnHer, and other exposure-style apps using real legal-compliance methods.
           </p>
           <StartRemovalButton className="inline-block rounded-lg bg-[#38B7B0] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#2C8F8A]" />
           <p className="mt-3 text-sm text-slate-200">100% Removal Guarantee — or your money back.</p>
@@ -111,20 +103,12 @@ export default function Home() {
             <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">What We Do</p>
             <h2 className="mt-2 text-2xl font-semibold text-[#0B1F3A]">Focused removal work for exposure apps</h2>
             <p className="mt-3 text-base text-[#1F2530]">
-              StopTheTea™ documents unauthorized profiles, misused photos, and harmful commentary, then prepares formal removal
-              requests handled by real analysts.
+              We remove harmful posts from Tea, TeaOnHer, and similar anonymous gossip or exposure apps.
             </p>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {offerings.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-xl border border-[#D1D5DB] bg-[#F4F6F8] p-6 text-left shadow-sm"
-              >
-                <h3 className="text-lg font-semibold text-[#0B1F3A]">{item.title}</h3>
-                <p className="mt-3 text-sm text-[#1F2530]">{item.body}</p>
-              </article>
-            ))}
+            <p className="mt-3 text-base text-[#1F2530]">
+              Whether someone shared lies, harassment, threats, or private information about you, we help get it taken down
+              through verified legal-compliance channels.
+            </p>
           </div>
         </div>
       </section>
@@ -143,8 +127,8 @@ export default function Home() {
       <section id="how-it-works" className="bg-white px-4 py-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">How It Works</p>
-          <h2 className="mt-2 text-2xl font-semibold text-[#0B1F3A]">A transparent, three-step workflow</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <h2 className="mt-2 text-2xl font-semibold text-[#0B1F3A]">Tea, TeaOnHer & similar app removal steps</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
               <article key={step.title} className="rounded-xl border border-[#D1D5DB] p-6 text-left">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#38B7B0]">Step {index + 1}</p>
@@ -168,10 +152,11 @@ export default function Home() {
           <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">Why StopTheTea Exists</p>
           <h2 className="mt-4 text-2xl font-semibold text-[#0B1F3A]">Structured removal for exposure platforms</h2>
           <p className="mt-6 text-base leading-7 text-[#3E4A56]">
-            Exposure apps like Tea have become known for posting individuals’ photos, names, and personal details without their
-            consent — often accompanied by harmful commentary. StopTheTea™ exists to give people a structured, effective way to
-            get these profiles taken down. We document the issue, prepare your case, and submit formal removal requests through
-            the appropriate escalation channels so you don’t have to navigate the process alone.
+            Exposure apps like Tea, TeaOnHer, and other anonymous gossip platforms have become known for posting individuals’
+            photos, names, and personal details without their consent — often accompanied by harmful commentary. StopTheTea™
+            exists to give people a structured, effective way to get these profiles taken down. We document the issue, prepare
+            your case, and submit formal removal requests through the appropriate escalation channels so you don’t have to
+            navigate the process alone.
           </p>
           <p className="mt-4 text-sm text-[#3E4A56] italic">
             Inspired by a long tradition of pushing back against unwanted tea.
@@ -180,7 +165,7 @@ export default function Home() {
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/ApT0N4zqy6M?si=gbhUDpxlKkMNRicm"
-              title="Tea App Data Breach Video"
+              title="Tea and similar app data breach video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -195,9 +180,10 @@ export default function Home() {
           <p className="text-sm uppercase tracking-[0.2em] text-[#CBAF6B]">Transparent Pricing</p>
           <h2 className="mt-3 text-3xl font-semibold text-[#0B1F3A]">Takedown Processing Fee: $99.99</h2>
           <p className="mt-4 text-base text-[#1F2530]">
-            A one-time service covering full case handling: documenting your situation, preparing a formal removal request, and
-            submitting it to the appropriate platform channels to remove unauthorized profiles, photos, and harmful commentary
-            from Tea and similar apps.
+            One-time flat fee for removing a post on Tea, TeaOnHer, or a similar anonymous gossip app.
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            Covers one link/URL on Tea, TeaOnHer, or similar exposure-style apps.
           </p>
           <p className="mt-4 text-center text-base text-slate-600">
             Backed by our 100% Removal Guarantee. If we cannot complete the removal after our full submission and escalation
@@ -254,6 +240,13 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="px-4">
+        <div className="mx-auto max-w-4xl rounded-2xl bg-white/70 p-4 text-center text-sm text-[#1F2530]">
+          If you’re searching for how to remove a post from Tea, TeaOnHer, or similar anonymous gossip apps, you’re in the
+          right place — we specialize in removing posts from these platforms.
+        </div>
+      </section>
+
       <section id="case-status" className="bg-white px-4 py-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">What to Expect After You Pay</p>
@@ -305,6 +298,24 @@ export default function Home() {
           <h2 className="text-2xl font-semibold text-slate-50">Frequently asked questions</h2>
 
           <div className="space-y-4">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">Do you only work with Tea?</p>
+              <p className="text-xs text-slate-300">No. We handle Tea, TeaOnHer, and similar anonymous gossip or exposure apps.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">What apps do you support?</p>
+              <p className="text-xs text-slate-300">
+                Tea, TeaOnHer, and most similar anonymous posting apps. If you’re unsure, submit the link and we’ll review it.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
+              <p className="text-sm font-semibold text-slate-50">What if a new Tea-like app appears?</p>
+              <p className="text-xs text-slate-300">
+                These platforms come and go. Our legal-compliance process adapts to new apps as they pop up.
+              </p>
+            </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-2">
               <p className="text-sm font-semibold text-slate-50">How long does removal take?</p>

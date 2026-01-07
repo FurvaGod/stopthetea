@@ -7,7 +7,7 @@ import { IntakeFormAnalyticsTracker } from "@/app/intake/IntakeFormAnalyticsTrac
 
 export const metadata: Metadata = {
   title: "Start a Takedown Request – StopTheTea™",
-  description: "Submit details securely to begin your removal request.",
+  description: "Submit details securely to remove posts from Tea, TeaOnHer, and similar anonymous gossip apps.",
   alternates: { canonical: "https://www.stopthetea.com/intake" },
 };
 
@@ -41,10 +41,15 @@ export default async function IntakePage({
         <div className="rounded-2xl border border-[#D1D5DB] bg-white p-8 shadow-lg">
           <div className="text-center">
             <p className="text-sm uppercase tracking-[0.2em] text-[#38B7B0]">DMCA Intake</p>
-            <h1 className="mt-2 text-3xl font-semibold text-[#0B1F3A]">Request A Tea Takedown</h1>
+            <h1 className="mt-2 text-3xl font-semibold text-[#0B1F3A]">Request a Tea, TeaOnHer & similar app removal</h1>
             <p className="mt-3 text-base text-[#3E4A56]">
-              Share complete details so our legal team can issue a compliant DMCA notice on your behalf.
-              After submitting the form you will be redirected to our secure Stripe checkout to pay the case fee.
+              Share complete details so our legal team can issue compliant takedown notices for Tea, TeaOnHer, or similar
+              anonymous gossip apps. After submitting the form you will be redirected to our secure Stripe checkout to pay the
+              case fee.
+            </p>
+            <p className="mt-3 text-sm text-[#3E4A56]">
+              If you’re searching for how to remove a post from Tea, TeaOnHer, or similar anonymous gossip apps, you’re in the
+              right place — we specialize in removing posts from these platforms.
             </p>
             <p className="mt-2 rounded-md border border-[#FACC15] bg-[#FEF9C3] px-4 py-2 text-sm text-[#92400E]">
               Please fill out every section to the best of your ability. Missing or inaccurate information can delay or prevent
@@ -124,26 +129,26 @@ export default async function IntakePage({
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
                     <label htmlFor="teaUsername" className="text-sm font-semibold text-[#0B1F3A]">
-                      Tea username
+                      Platform username (Tea, TeaOnHer, etc.)
                     </label>
                     <input
                       id="teaUsername"
                       name="teaUsername"
                       type="text"
                       className="mt-2 w-full rounded-lg border border-[#D1D5DB] bg-white px-4 py-2 text-sm text-[#1F2530] focus:border-[#38B7B0] focus:outline-none"
-                      placeholder="@offender"
+                      placeholder="@offender or profile handle"
                     />
                   </div>
                   <div>
                     <label htmlFor="teaProfileUrl" className="text-sm font-semibold text-[#0B1F3A]">
-                      Tea profile link
+                      Profile/link on Tea, TeaOnHer, or similar app
                     </label>
                     <input
                       id="teaProfileUrl"
                       name="teaProfileUrl"
                       type="text"
                       className="mt-2 w-full rounded-lg border border-[#D1D5DB] bg-white px-4 py-2 text-sm text-[#1F2530] focus:border-[#38B7B0] focus:outline-none"
-                      placeholder="https://tea.app/profile/abc123"
+                      placeholder="https://tea.app/profile/abc123 or similar"
                     />
                   </div>
                 </div>
@@ -156,7 +161,7 @@ export default async function IntakePage({
                     name="whereContentAppears"
                     type="text"
                     className="mt-2 w-full rounded-lg border border-[#D1D5DB] bg-white px-4 py-2 text-sm text-[#1F2530] focus:border-[#38B7B0] focus:outline-none"
-                    placeholder="Tea post title, folder, or link"
+                    placeholder="Tea, TeaOnHer, or similar app post title, folder, or link"
                   />
                 </div>
                 <div>
